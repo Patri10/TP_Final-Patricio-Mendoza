@@ -110,7 +110,7 @@ function enviarTransaccion(tipo, cripto, cantidad, montoARS, fecha) {
 
     const transaccion = {
         tipo: tipo,
-        cantidad: cantidad, // <--- Cambia aquí
+        cantidad: cantidad,
         precioUnitario: precioUnitario,
         montoARS: montoARS,
         fechaHora: fecha.toISOString(),

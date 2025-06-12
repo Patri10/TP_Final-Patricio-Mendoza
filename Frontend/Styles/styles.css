@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -89,14 +88,26 @@ body {
 }
 
 .nav-link {
-    color: #9ca3af;
+    color: #9ca3af !important;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    background: none !important;
 }
 
-.nav-link:hover {
-    color: white;
+
+
+.nav-link.active {
+    color: #fff !important;
+    border-bottom: 2px solid transparent;
+    background: none !important;
+}
+.nav-link.active:hover {
+    color: #a855f7 !important;
+    border-bottom: 2px solid #a855f7 width 20%;
+    background: none !important;
 }
 
 .user-section {
@@ -188,7 +199,7 @@ body {
 }
 
 .form-input, .form-select {
-    width: 50%;
+    width: 80%;
     padding: 0.875rem 1rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
