@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroPat - Crypto Wallet</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../Templates/index.html">Astro<span class="pato">Pat</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../Templates/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Templates/criptos.html" target="_blank">Criptos</a>
+                    </li>
+                </ul>
+                <span class="navbar-text" id="navUser" style="color: white;">
+                </span>
+                <button class="btn btn-outline-light btn-sm ms-3" onclick="logout()">Cerrar sesión</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="loginContainer" class="login-container">
+        <div class="login-form glass">
+            <div class="login-header">
+                <div class="logo-icon large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 7V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v3"/>
+                        <path d="M21 7H3l2 8h14l2-8z"/>
+                        <path d="M12 12v4"/>
+                    </svg>
+                </div>
+                <h2 class="login-title">AstroPat</h2>
+                <p class="login-subtitle">Tu wallet de criptomonedas</p>
+            </div>
+
+            <div class="form-group">
+                <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                <input type="text" id="usernameInput" class="form-input" placeholder="Tu nombre o email" />
+            </div>
+
+            <div class="form-group">
+                <label for="passwordInput" class="form-label">Contraseña</label>
+                <input type="password" id="passwordInput" class="form-input" placeholder="Tu contraseña" />
+            </div>
+
+            <p id="errorMessage" class="error-message"></p>
+
+            <div class="button-group">
+                <button onclick="login()" class="btn btn-primary">Iniciar Sesión</button>
+                <button onclick="registrarUsuario()" class="btn btn-secondary">Registrarse</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="appContainer" class="app-container" style="display: none;">
+        <div class="welcome-section glass">
+            <h3 class="welcome-title">
+                Bienvenido, <span id="userName" class="gradient-text"></span>
+            </h3>
+            <div id="saldosUsuario" class="saldos-container"></div>
+        </div>
+    </div>
+
+   
+    <div id="accionesContainer" class="acciones-container" style="display: none;">
+        
+    
+        <div class="crypto-selector-section">
+            <div class="form-group">
+                <label for="criptoSelect" class="form-label">Seleccionar Criptomoneda</label>
+                <select id="criptoSelect" class="form-select">
+                    <option value="BTC">Bitcoin (BTC)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                    <option value="USDT">Tether (USDT)</option>
+                    <option value="BNB">Binance Coin (BNB)</option>
+                </select>
+            </div>
+        <div class="trading-section">
+            <div class="trading-form glass">
+                <h5 class="section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/>
+                        <polyline points="17,6 23,6 23,12"/>
+                    </svg>
+                    Operar Criptomonedas
+                </h5>
+
+                <form id="compraForm">
+                    <div class="form-group">
+                        <label class="form-label">Acción</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="comprar" name="accion" value="compra" checked>
+                                <label for="comprar" class="radio-label">Comprar</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="vender" name="accion" value="venta">
+                                <label for="vender" class="radio-label">Vender</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cantidad" class="form-label">Cantidad</label>
+                            <input type="number" id="cantidad" class="form-input" min="0.0001" step="any" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalCompra" class="form-label">Total en ARS</label>
+                            <input type="text" id="totalCompra" class="form-input" readonly>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Confirmar Operación</button>
+                </form>
+
+                <div id="mensajeCompra" class="transaction-message"></div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="history-section">
+            <div id="historialTransacciones" class="history-container glass"></div>
+        </div>
+
+        <!-- TradingView Widget debajo del historial -->
+        <div class="tradingview-widget-container my-4">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright">
+            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+              <span class="blue-text">Track all markets on TradingView</span>
+            </a>
+          </div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+          {
+          "symbols": [
+            [
+              "BITSTAMP:BTCUSD|1D"
+            ],
+            [
+              "COINBASE:ETHUSD|1D"
+            ],
+            [
+              "BINANCE:BNBUSDT|1D"
+            ],
+            [
+              "BINANCE:BTCUSDT|1D"
+            ]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "400",
+          "locale": "en",
+          "colorTheme": "dark",
+          "autosize": true,
+          "showVolume": false,
+          "showMA": false,
+          "hideDateRanges": false,
+          "hideMarketStatus": false,
+          "hideSymbolLogo": false,
+          "scalePosition": "right",
+          "scaleMode": "Normal",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+          "fontSize": "10",
+          "noTimeScale": false,
+          "valuesTracking": "1",
+          "changeMode": "price-and-percent",
+          "chartType": "area",
+          "maLineColor": "#2962FF",
+          "maLineWidth": 1,
+          "maLength": 9,
+          "headerFontSize": "medium",
+          "lineWidth": 2,
+          "lineType": 0,
+          "dateRanges": [
+            "1d|1",
+            "1m|30",
+            "3m|60",
+            "12m|1D",
+            "60m|1W",
+            "all|1M"
+          ]
+        }
+          </script>
+        </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JavaScript/consultas.js"></script>
+    <script src="../JavaScript/inicio.js"></script>
+    <script src="../JavaScript/transaccion.js"></script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    
+}
+
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+}
+
+
+.gradient-text {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pato {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem ;
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon.large {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #9ca3af;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-user {
+    color: #e5e7eb;
+    font-size: 0.875rem;
+}
+
+.logout-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: translateY(-1px);
+}
+
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 2rem;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-subtitle {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+}
+
+#tituloMercado{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 120px;
+    color: #e5e7eb;
+    text-transform: uppercase;
+}
+
+.form-input, .form-select {
+    width: 50%;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: #a855f7;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+.form-input::placeholder {
+    color: #6b7280;
+}
+
+.form-select option {
+    background: #1a1a2e;
+    color: white;
+}
+
+
+.btn {
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    color: white;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.btn-modern {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-modern.green {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.btn-modern.green:hover {
+    background: rgba(34, 197, 94, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-modern.yellow {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.btn-modern.yellow:hover {
+    background: rgba(245, 158, 11, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-modern.gray {
+    background: rgba(107, 114, 128, 0.2);
+    color: #d1d5db;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+.btn-modern.gray:hover {
+    background: rgba(107, 114, 128, 0.3);
+    transform: translateY(-1px);
+}
+
+
+.error-message {
+    color: #fca5a5;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+.app-container {
+    margin-top: 100px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+
+.saldos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.titulo-saldo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #e5e7eb;
+}
+
+.saldos-lista {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.saldo-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 500;
+}
+
+
+.acciones-container {
+    margin-top: 100px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.crypto-selector-section {
+    margin-bottom: 2rem;
+}
+
+.market-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+
+.price-table-container {
+    margin-bottom: 2rem;
+}
+
+.tabla-cripto-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.titulo-tabla {
+    padding: 1rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e5e7eb;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#tablaCripto {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaCripto th {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #e5e7eb;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#tablaCripto td {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f3f4f6;
+}
+
+#tablaCripto tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.exchange {
+    font-weight: 500;
+    color: white;
+}
+
+.ask {
+    color: #4ade80;
+    font-weight: 500;
+}
+
+.bid {
+    color: #f87171;
+    font-weight: 500;
+}
+
+.alerta-cripto {
+    padding: 2rem;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.alerta-cripto.error {
+    color: #fca5a5;
+}
+
+#trading-view{
+    width: 50%;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.trading-section {
+    margin-bottom: 2rem;
+}
+
+.trading-form {
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #a855f7;
+}
+
+.radio-label {
+    font-size: 0.875rem;
+    color: #e5e7eb;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.transaction-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+}
+
+.transaction-message:not(:empty) {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+
+.history-section {
+    margin-top: 2rem;
+}
+
+.history-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.historial-transacciones .titulo-tabla {
+    padding: 1rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e5e7eb;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.historial-transacciones .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.historial-transacciones .table th {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #e5e7eb;
+    font-size: 0.875rem;
+    border: none;
+}
+
+.historial-transacciones .table td {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f3f4f6;
+    border: none;
+}
+
+.historial-transacciones .table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+@media (max-width: 768px) {
+    
+    
+    .app-container,
+    .acciones-container {
+        padding: 1rem;
+    }
+    
+    .saldos-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .market-buttons {
+        justify-content: center;
+    }
+    
+    .login-form {
+        padding: 2rem 1rem;
+    }
+    
+    #tablaCripto th,
+    #tablaCripto td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+    
+    .login-title {
+        font-size: 1.5rem;
+    }
+    
+    .btn-modern {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .market-buttons {
+        flex-direction: column;
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#tituloCriptos {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 120px;
+    color: #e5e7eb;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
